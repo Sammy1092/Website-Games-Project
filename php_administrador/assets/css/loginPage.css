@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "Agdasima", sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap');
+}
+
+body{
+    width: 100%;
+    background-color:rgb(218, 226, 233);
+}
+
+#image {
+    width: 393px;
+    height: 425px;
+    object-fit: cover;
+    object-position: -432px 1px;
+    border-radius: 20px;
+}
+
+
+.container_formLogin{
+    box-shadow:0px 7px 29px 19px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    background-color:rgb(255, 255, 255) ;
+    display: inline-flex;
+    position: relative;
+    top: 120px;
+    left: 346px;
+    align-items: center;
+    justify-content: center;
+    width: 572px;
+    height: 425px;
+}
+
+/* FORMULARIO */
+#form_user{
+    margin-bottom: 122px;
+    font-size: 13px;
+    position: relative;
+    left: -70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.h1{
+    font-family: "Agdasima", sans-serif;
+    font-weight: bold;
+    z-index: 3;
+    color: brown;
+}
+
+.div_text{
+    font-size: 1em;
+}
+
+#inputUserLog{
+    margin: 0 0 20px 0;
+    padding: 10px 0;
+    border: none;
+    border-radius: 20px;
+}
+
+#inputUserLog{
+    background:url(../image/user.svg) no-repeat scroll 10px 10px;
+    padding-left: 30px;
+    background-color:rgb(221, 221, 221);
+}
+
+#inputPasswordLog{
+    padding: 10px 0;
+    border: none;
+    border-radius: 20px;
+}
+
+#inputPasswordLog{
+    background:url(../image/password.svg) no-repeat scroll 10px 10px;
+    padding-left: 30px;
+    background-color: rgb(221, 221, 221);
+
+}
+
+/* BOTAO */
+#flexCheckDefault{
+    margin: 5px 0 10px 0;
+}
+
+#buttonLog{
+    border: none;
+    background-color: brown;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

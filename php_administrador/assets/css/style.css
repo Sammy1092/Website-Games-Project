@@ -1,0 +1,20 @@
+
+#loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #33333388;
+    transition: opacity 0.075s, visibility 0.75s;
+    z-index: 4;
+}
+
+#load{
+    width: 8vw;
+    height: 18vh;
+    position: relative;
+}
+

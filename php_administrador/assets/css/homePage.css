@@ -1,0 +1,143 @@
+@font-face {
+    font-family: "Agdasima", sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap');
+}
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.header_home{
+    display: flex;
+    height: 9vh;
+    background-color: brown;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ol,ul{
+    margin: 0;
+    padding: 0;
+}
+
+.list_header{
+    display: flex;
+    list-style: none;
+    margin-left: 450px;
+
+}
+
+.name {
+    display: inline-flex;
+    padding-left: 8px;
+    font-family: "Agdasima", sans-serif;
+    font-size: 20px;
+}
+
+.pages:hover{
+    color: #949494;
+    text-decoration: none;
+}
+
+.pages{
+    color: white;
+}
+
+/*  */
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.a_logout{
+    font-family: "Agdasima", sans-serif;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: #333;
+}
+
+/*  */
+.container_content{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    text-align: justify;
+    padding: 0;
+    margin: 0 20vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MENU */
+.user-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 4;
+}
+
+.user-menu.show {
+    display: block;
+    margin: 0 0 0 -30px;
+}
+
+#header_menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item_menu{
+    text-decoration: none;
+    color: #333;
+}
+
+.item_menu:hover{
+    text-decoration: none;
+    color: #333;
+}
+
+/* BOTÃO */
+.container_button{
+    margin: 0;
+
+}
+#button{
+    display: flex;
+    align-items: center;
+}
+
+.button{
+    font-family: "Agdasima", sans-serif;
+    font-size: 20px;
+    padding: 4px 19px;
+    margin-left: 19px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+.button:hover{
+    border: 1px solid #949494;
+}
+
+#registro{
+    color: white;
+}
+
+#registro:hover{
+    color: #949494;
+    text-decoration: none;
+}
+
+#login{
+    color: white;
+}
+
+#login:hover{
+    color: #949494;
+    text-decoration: none;
+}

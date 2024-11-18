@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+
+/* USER */
+.header-details_user{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(228, 228, 228);
+    width: 101%;
+    height: 101%;
+}
+
+#user{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top: 150px;
+    left: 70px;
+    height: 10px;
+    z-index: 1;
+}
+
+#user::before {
+    content: '';
+    position: absolute;
+    top:0 ;
+    left: 0;
+    width: 80%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent 70%, #2222228c 0%);
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+}
+
+#user:hover::before {
+    opacity: 1;
+}
+
+#svg_edit{
+    opacity: 0;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: 70px;
+    left: -60px;
+    z-index: 3;
+    transition: 0.3s;
+}
+
+#user_list{
+    margin-top: 56px;
+    width: 42%;
+}
+
+.list-account{
+    width: 92%;
+    padding: 0;
+    position: relative;
+    left: 168px;
+    top: 0;
+    list-style: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.menu_user-list a{
+    color: #555555;
+    text-decoration: none;
+}
+
+.menu_user-list{
+    margin: 10px 0;
+    width: 35%;
+    height: 5%;
+    border-bottom: 2px solid #5555555e;
+}
+
+.text_user:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: #363636;
+}
+
+/*  */
+
+/* USER FORM */
+.triangle{
+    width: 0px;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 32px 16px;
+    margin: 0;
+    position: relative;
+    top: 9.5vh;
+    left: -7.5vw;
+    border-color: transparent transparent rgb(187, 187, 187) transparent;
+    transform: rotate(270deg);
+    transition: 0.5s ;
+}
+
+.form_account{
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+    padding: 27px 0 544px;
+    margin: 30px 0 0 -100px;
+    height: 0;
+}
+
+.info_account{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 600px 0 20px;
+}
+
+.auth_account{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 600px 0 20px;
+}
+
+#user_h1{
+    font-family: "Titillium Web", sans-serif;
+    padding: 10px 30px;
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5em;
+    background-color:rgb(187, 187, 187);
+}
+
+.input{
+    background-color: #e7e7e7;
+    font-style: italic;
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    color: #7e7e7e;
+}
+
+#inputName{
+    margin-bottom: 18px;
+}
+
+.svg_edit{
+    margin-bottom: 15px;
+    margin-left: 18vw;
+    cursor: pointer;
+}
