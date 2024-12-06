@@ -1,5 +1,15 @@
-<?php 
+<?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/php_administrador/index.php';
+
+    // Conectar ao banco de dados
+    $conn = new mysqli('localhost', 'root', '', 'gameshop');
+
+    // Verificar a conexão
+    if ($conn->connect_error) {
+        die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+    }
+
+    
     function custom_header() {
         $header_items = [
             'Home' => '../pages/HomePage.php',
@@ -19,7 +29,7 @@
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if (isset($_SESSION['Usuário'])) {
                 return "
-                <button class='nav_login' id='buy'>
+                <button class='nav_login' id='buy' onclick='redirectClick'>
                     <svg viewBox='0 0 28 28' width='20px' height='20px' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
                         <g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g>
@@ -29,12 +39,13 @@
                     </svg>
                 </button>
                 <button class='nav_login' id='navLogin'>
-                    <img src='profile/profile-default-icon.png' width='20px' height='20px' alt='user_photo' id='photoP'>
+                    <img src='profile/profile-default-icon.png'.width='20px' height='20px' alt='user_photo' id='photoP''>
                     " . htmlspecialchars($_SESSION['Usuário']) . "
                 </button>
+
                 <div id='userMenu' class='menu'>
                     <ul id='header_menu'>
-                        <li class='menu_list'><a href='AccountPage.php' class='item_menu'>Configurações</a></li>
+                        <li class='menu_list'><a href='../pages/AccountPage.php' class='item_menu'>Configurações</a></li>
                         <li class='menu_list'><a href='logOut.php' class='item_menu'>Sair</a></li>
                     </ul>
                 </div>";
@@ -47,27 +58,45 @@
             }
         }
     }
+
+    // Consulta SQL para pegar todos os jogos
+    $sql = "SELECT games.ID, games.Nome, games.Lancamento, category.Nome AS Categoria, games.JogoP
+            FROM games
+            JOIN category ON games.ID_Categoria = category.ID
+            ORDER BY games.Nome ASC";
+
+    // Executar a consulta
+    $result = $conn->query($sql);
+
+    // Verificar se há resultados
+    if ($result->num_rows > 0) {
+       while($row = $result->fetch_assoc()){
+            echo "<div class='card'>";
+            echo "<img src='upload/" . htmlspecialchars($row['JogoP']) . "' width='100%' height='300px' class='foto_jogo' alt='banner do jogo'/>";
+            echo "<span>".htmlspecialchars($row['Nome'])."</span>";
+            echo "<p><strong>Lançamento:</strong> " . htmlspecialchars($row['Lancamento']) . "</p>";
+            echo "<p><strong>Categoria:</strong> " . htmlspecialchars($row['Categoria']) . "</p>";
+            echo "</div>";
+       }
+    } else {
+        echo "Nenhum jogo encontrado.";
+    }
+
 ?>
+
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../image/home.ico" type="image/home-icon">
-    <title>Home</title>
+    <title>Loja</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/homePage.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&family=Pixelify+Sans:wght@400..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/Shop.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/homePage.css">
 
-    <!-- JavaScript -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 </head>
 <body>
     <header id="header_container">
@@ -79,27 +108,10 @@
         </div>
     </header>
 
-    <div>
-        <div class="banner_image" id="div_banner">
-            <img src="../image/banner_gameplay.jpg" width="100%" height="720px" alt="background_image" style="filter: blur(2.6px);">
-            <span id="text__banner">BANNER TEXT</span>
-        </div>
-        <nav class="container_content">
-            <div id="text_content">
-                <hr>
-                <span>
-                    Espaço para Game Devs, onde podem ver dicas, recursos e outros desenvolvedores falando sobre programação.
-                </span>
-            </div>
-        </nav>
-    </div>
+    <!-- JS -->
 
     <div id="loader">
         <div class="spinner-grow text-primary" id="load"></div>
     </div>
-
-
-    <script type="module" src="../js/homePage.js?ver=1.0"></script>
-
 </body>
 </html>

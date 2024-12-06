@@ -3,6 +3,12 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php_administrador/index.php';
 
+$conn = new mysqli('localhost', 'root', '', 'empresa');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -55,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/loginPage.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -64,18 +71,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="form_user">
         <div class="dados-pessoais">
             <form action="Login.php" method="POST" class="container_formLogin">
-                <img width=""  src="../image/1338599.png" alt="" id="image"/>
                 <div id="form_user">
                     <div class="h1">LOGIN</div>
                     <input type="text" placeholder="Login" name="inputUserLog" id="inputUserLog" required>
                     <input type="password" placeholder="Senha" name="inputPasswordLog" id="inputPasswordLog" required>
 
-                    <button type="submit" class="btn btn-primary" id="buttonLog">Entrar</button>
+                    <button type="submit" class="botao">Enviar</button>
                 </div>
             </form>
         </div>
     </div>
-
+    <div id="loader">
+        <div class="spinner-grow text-primary" id="load"></div>
+    </div>
 
     <!-- Script jQuery para gerar e validar o checkbox -->
     <script type="text/javascript" src="../js/Login.js"></script>

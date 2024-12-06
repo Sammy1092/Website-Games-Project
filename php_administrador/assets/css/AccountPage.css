@@ -46,15 +46,8 @@ body{
     opacity: 1;
 }
 
-#svg_edit{
-    opacity: 0;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    top: 70px;
-    left: -60px;
-    z-index: 3;
-    transition: 0.3s;
+#photoP{
+    border-radius: 40px;
 }
 
 #user_list{
@@ -90,6 +83,7 @@ body{
     color: #363636;
 }
 
+
 /*  */
 
 /* USER FORM */
@@ -119,7 +113,7 @@ body{
 .info_account{
     display: flex;
     flex-direction: column;
-    padding: 30px 600px 0 20px;
+    padding: 30px 550px 0 20px;
 }
 
 .auth_account{
@@ -146,12 +140,75 @@ body{
     color: #7e7e7e;
 }
 
-#inputName{
-    margin-bottom: 18px;
+#inputName,#inputEmailLog{
+    margin-bottom: 40px;
 }
 
-.svg_edit{
-    margin-bottom: 15px;
-    margin-left: 18vw;
+#svg_edit{
+    position: relative;
+    left: -60px;
+    top: 70px;
+    z-index: 2;
+}
+
+#btn-user, #btn-pass{
     cursor: pointer;
+}
+
+/* MODAL */
+#container_content {
+    display: block; /* Torna o container visível */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.gallery {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px dashed #aaa;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+.modal-title{
+    font-size: 1.4em;
+}
+
+#container_content{
+    display: flex;
+    flex-direction: column;
+}
+
+.exampleTextUsuario, .exampleTextSenha, .exampleTextConfSenha{
+    background-color: #e7e7e7;
+    font-style: italic;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    color: #353535;
+}
+
+.exampleTextSenha{
+    margin: 20px 0 7px 0;
+}
+
+#togglePassword {
+    display: inline-flex;
+    font-size: 15px; /* Ajuste o tamanho do ícone conforme necessário */
+    cursor: pointer; /* Para indicar que o ícone é clicável */
+    margin: 0;
+    padding: 0;
 }

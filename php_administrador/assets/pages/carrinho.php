@@ -1,20 +1,19 @@
-<?php 
+<?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/php_administrador/index.php';
     function custom_header() {
         $header_items = [
             'Home' => '../pages/HomePage.php',
             'Loja' => '../pages/Loja.php'
         ];
-    
+
         $html = '<ul class="list_header">';
         foreach ($header_items as $name => $url) {
             $html .= "<li class='name'><a class='pages' href='$url'>$name</a></li>"; 
         }
         $html .= '</ul>';
-    
+
         return $html;
     }
-    
     function user_navigation() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if (isset($_SESSION['Usuário'])) {
@@ -49,25 +48,19 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../image/home.ico" type="image/home-icon">
-    <title>Home</title>
+    <title>Carrinho</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/homePage.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&family=Pixelify+Sans:wght@400..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-
-    <!-- JavaScript -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 </head>
 <body>
     <header id="header_container">
@@ -79,27 +72,8 @@
         </div>
     </header>
 
-    <div>
-        <div class="banner_image" id="div_banner">
-            <img src="../image/banner_gameplay.jpg" width="100%" height="720px" alt="background_image" style="filter: blur(2.6px);">
-            <span id="text__banner">BANNER TEXT</span>
-        </div>
-        <nav class="container_content">
-            <div id="text_content">
-                <hr>
-                <span>
-                    Espaço para Game Devs, onde podem ver dicas, recursos e outros desenvolvedores falando sobre programação.
-                </span>
-            </div>
-        </nav>
-    </div>
-
     <div id="loader">
         <div class="spinner-grow text-primary" id="load"></div>
     </div>
-
-
-    <script type="module" src="../js/homePage.js?ver=1.0"></script>
-
 </body>
 </html>

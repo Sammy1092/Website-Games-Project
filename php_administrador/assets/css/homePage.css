@@ -1,143 +1,214 @@
-@font-face {
-    font-family: "Agdasima", sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Permanent+Marker&display=swap');
-}
-header{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
-.header_home{
-    display: flex;
-    height: 9vh;
-    background-color: brown;
-    align-items: center;
-    justify-content: space-around;
-}
-
-ol,ul{
+/* Estilo geral */
+body {
+    font-family: 'Titillium Web', sans-serif;
     margin: 0;
+    padding: 0;
+    background: #1e1e2f;
+    color: #f5f5f5;
+}
+
+hr{
+    width: 840px;
+}
+
+/* Header */
+#header_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    z-index: 10;
+}
+
+.header_home {
+    background: #2c2f3b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.list_header {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    position: relative;
+    z-index: 10;
     padding: 0;
 }
 
-.list_header{
-    display: flex;
-    list-style: none;
-    margin-left: 450px;
-
-}
-
-.name {
-    display: inline-flex;
-    padding-left: 8px;
-    font-family: "Agdasima", sans-serif;
-    font-size: 20px;
-}
-
-.pages:hover{
-    color: #949494;
-    text-decoration: none;
+.list_header .current {
+    color: gray; /* Cor para o botão da página atual */
+    pointer-events: none; /* Remove a possibilidade de clicar */
+    cursor: default; /* Indica que o botão não é clicável */
 }
 
 .pages{
-    color: white;
+    pointer-events: auto;
 }
 
-/*  */
-
-body{
-    padding: 0;
-    margin: 0;
+.list_header .name {
+    margin-right: 15px;
 }
 
-.a_logout{
-    font-family: "Agdasima", sans-serif;
-    font-size: 1.4em;
+.list_header .pages {
     text-decoration: none;
-    color: #333;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.list_header .pages:hover {
+    text-decoration: none;
+    color: #c5c5c5;
+}
+
+/* Botões do usuário */
+.container_button{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -34px;
+}
+
+.container_button .button {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.container_button a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #1e90ff, #4b6584);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    transition: color 0.3s ease;
+}
+
+.container_button a:hover {
+    background: linear-gradient(135deg, #4b6584, #1e90ff);
+    color: #c5c5c5;
+}
+
+#navLogin{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    margin-right: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#navLogin:hover{
+    cursor: pointer;
+    background-color: #1e1e2f;
+    border-radius: 5px;
+}
+
+#navLogin:focus{
+    background-color: #1e1e2f;
+    border-radius: 5px;
+}
+
+#photoP{
+    border-radius: 40px;
+    margin: 0 7px 0 0;
 }
 
 /*  */
-.container_content{
-    display: flex;
+#buy{
+    padding: 3px 10px;
+    background-color: #2c2f3b;
+    border: none;
+}
+
+#buy:hover{
+    cursor: pointer;
+    background-color:#1e1e2f;
+    border: none;
+    border-radius: 5px;
+}
+/*  */
+
+#header_menu{
+    list-style: none;
+    margin: 1px 0;
+    padding: 10px;
+    background-color: #1e1e2f;
+}
+
+/* Banner */
+.banner_image {
     position: relative;
-    flex-direction: column;
-    text-align: justify;
-    padding: 0;
-    margin: 0 20vw;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.banner_image img {
+    filter: brightness(70%) blur(2.6px);
+}
+
+#text__banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-family: 'Permanent Marker', cursive;
+    color: #ffffff;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Conteúdo */
+.container_content {
+    margin: -163px auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+#text_content {
+    height: 164px;
+    font-size: 18px;
+    background: #2c2f3b;
+    padding: 35px 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+}
+
+#text_content span {
+    color: #dcdcdc;
+}
+
+/* Animação do hover nos links */
+.pages:hover {
+    color: #00aaff;
+    text-decoration: underline;
 }
 
 /* MENU */
-.user-menu {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 4;
+#userMenu {
+    display: none; /* Oculto por padrão */
 }
 
-.user-menu.show {
-    display: block;
-    margin: 0 0 0 -30px;
-}
-
-#header_menu{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.item_menu{
-    text-decoration: none;
-    color: #333;
-}
-
-.item_menu:hover{
-    text-decoration: none;
-    color: #333;
-}
-
-/* BOTÃO */
-.container_button{
-    margin: 0;
-
-}
-#button{
+#userMenu.show {
     display: flex;
-    align-items: center;
+    position: absolute;
+    top: 28px;
+    z-index: 2;
 }
 
-.button{
-    font-family: "Agdasima", sans-serif;
-    font-size: 20px;
-    padding: 4px 19px;
-    margin-left: 19px;
-    border-radius: 20px;
-    border: 1px solid white;
-}
-
-.button:hover{
-    border: 1px solid #949494;
-}
-
-#registro{
-    color: white;
-}
-
-#registro:hover{
-    color: #949494;
-    text-decoration: none;
-}
-
-#login{
-    color: white;
-}
-
-#login:hover{
-    color: #949494;
-    text-decoration: none;
+.menu_list{
+    margin: 10px 0 20px 0;
 }
